@@ -4,7 +4,7 @@ import connectdb from "./db/dbconnect.js";
 import userrouter from './router/userroutes.js';
 import jobrouter from './router/jobsroutes.js';
 import cors from 'cors';
-import jo
+import jobsapplicationrouter from './router/jobapplicationroutes.js';
 
 const app = express();
 dotenv.config();//load env variables
@@ -25,6 +25,7 @@ app.get('/api/home',(req,res)=>{
 //ROUTES
 app.use('/api',userrouter)
 app.use('/api',jobrouter)
+app.use('/api',jobsapplicationrouter)
 let port=process.env.port || 5051;
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
