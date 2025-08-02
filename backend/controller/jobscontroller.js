@@ -1,5 +1,9 @@
 import jobmodel from "../models/jobsmodels.js";
 import usermodel from "../models/usermodel.js";
+import {fetchJobsFromAPI,
+  processJobWithAI,
+  saveJobToDB,
+  fetchProcessAndStoreJobs} from '../services/service.js'
 
 export const postjob=async(req,res)=>{
     try {
@@ -123,3 +127,28 @@ export const deleteadminjob = async(req,res)=>{
         return res.status(500).json({error:'internal server error'+error.message});
     }
 }
+
+export const importJobs = async (req, res) => {
+  try {
+    const results = await fetchProcessAndStoreJobs('6889ee4896956f2ca0c9a512');
+    
+    if (results.every(r => !r.success)) {
+      return res.status(400).json({
+        success: false,
+        message: 'All jobs failed to process',
+        results
+      });
+    }
+
+    res.json({
+      success: true,
+      results
+    });
+  } catch (error) {
+    console.error('Import jobs error:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Job import failed'
+    });
+  }
+};
