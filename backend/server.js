@@ -7,10 +7,6 @@ import jobsapplicationrouter from './router/jobapplicationroutes.js';
 import dotenv from "dotenv";
 dotenv.config();
 
-console.log('Email User:', process.env.EMAIL_USER);
-console.log('Email Pass:', process.env.EMAIL_PASS ? 'Loaded ✅' : 'Not Loaded ❌');
-
-
 const app = express();
 dotenv.config();//load env variables
 connectdb(); 
