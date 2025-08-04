@@ -8,8 +8,13 @@ const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || 'aa7e0b2c4amsh7bd69a4c09d984dp1
 const RAPIDAPI_HOST = 'linkedin-job-search-api.p.rapidapi.com';
 
 // Fetch jobs from RapidAPI
-export const fetchJobsFromAPI = async (titleFilter = 'data science', locationFilter = 'india') => {
+export const fetchJobsFromAPI = async (titleFilter = 'web developer', locationFilter = 'india') => {
   try {
+    let date=new Date();
+    let titles=['data engineer','full stack','Ai/ml','data analyst','cloud developer','ui/ux'];
+    if(date.getDay()<=6 && date.getDay()>=1){
+          titleFilter=titles[date.getDay()-1];
+    }
     const options = {
       method: 'GET',
       url: RAPIDAPI_URL,
