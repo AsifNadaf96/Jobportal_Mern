@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://asifnadaf96.github.io/Jobportal_Mern",
+  "homepage": "https://asifnadaf96.github.io/Jobportal_Mern/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node postbuild.js",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
