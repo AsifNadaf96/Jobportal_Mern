@@ -26,39 +26,39 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-        <BrowserRouter>
-          <div className="min-h-screen bg-background">
-            <Header />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/jobs" element={<Jobs />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                
-                {/* Placeholder routes - will be implemented */}
-                <Route path="/profile" element={<Dashboard />} />
-                <Route path="/applications" element={<Dashboard />} />
-                <Route path="/settings" element={<Dashboard />} />
-                <Route path="/forgot-password" element={<Login />} />
-                
-                {/* Admin routes */}
-                <Route path="/admin/*" element={<Dashboard />} />
-                
-                {/* Job specific routes */}
-                <Route path="/jobs/:id" element={<Jobs />} />
-                <Route path="/jobs/:id/apply" element={<Jobs />} />
-                
-                {/* Catch-all route for 404 */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-          </div>
-        </BrowserRouter>
+          {/* 👇 Add basename for GitHub Pages */}
+          <BrowserRouter basename="/Jobportal_Mern">
+            <div className="min-h-screen bg-background">
+              <Header />
+              <main>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/jobs" element={<Jobs />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  
+                  {/* Placeholder routes */}
+                  <Route path="/profile" element={<Dashboard />} />
+                  <Route path="/applications" element={<Dashboard />} />
+                  <Route path="/settings" element={<Dashboard />} />
+                  <Route path="/forgot-password" element={<Login />} />
+                  
+                  {/* Admin routes */}
+                  <Route path="/admin/*" element={<Dashboard />} />
+                  
+                  {/* Job specific routes */}
+                  <Route path="/jobs/:id" element={<Jobs />} />
+                  <Route path="/jobs/:id/apply" element={<Jobs />} />
+                  
+                  {/* Catch-all route for 404 */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+            </div>
+          </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>
     </QueryClientProvider>
